@@ -1,0 +1,5 @@
+aws sns create-topic --name "AKLab5"
+
+aws sns subscribe --topic-arn arn:aws:sns:us-east-2:160698951904:AKLab5 --protocol email --notification-endpoint arsenn.kozhann@gmail.com
+
+aws cloudwatch put-metric-alarm --alarm-name StatusCheck --alarm-description "Lab5" --metric-name HealthyHostCount --namespace AWS/ApplicationELB --statistic Minimum --dimensions Name=LoadBalancer,Value=app/Lab4/a8fc9b82772bb8ed Name=TargetGroup,Value=targetgroup/Lab4/d4df91995a82cad3 --unit Count --period 300 --threshold 2 --evaluation-periods 2 --comparison-operator LessThanThreshold --alarm-actions arn:aws:sns:us-east-2:160698951904:AKLab5
