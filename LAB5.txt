@@ -1,0 +1,12 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2577
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 aws sns create-topic --name "AKLab5"\
+\
+aws sns subscribe --topic-arn arn:aws:sns:us-east-2:160698951904:AKLab5 --protocol email --notification-endpoint arsenn.kozhann@gmail.com\
+\
+aws cloudwatch put-metric-alarm --alarm-name StatusCheck --alarm-description "Lab5" --metric-name HealthyHostCount --namespace AWS/ApplicationELB --statistic Minimum --dimensions Name=LoadBalancer,Value=app/Lab4/a8fc9b82772bb8ed Name=TargetGroup,Value=targetgroup/Lab4/d4df91995a82cad3 --unit Count --period 300 --threshold 2 --evaluation-periods 2 --comparison-operator LessThanThreshold --alarm-actions arn:aws:sns:us-east-2:160698951904:AKLab5}
